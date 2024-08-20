@@ -1,0 +1,40 @@
+import java.util.*;
+class FT4
+{
+    public static void main(String ag[])
+    {   Scanner sc=new Scanner(System.in);
+        String A=sc.next();
+        int l=A.length();
+        int t=0;
+        if(l%2==0)
+        {   char K[]=new char[l];
+            
+            int g=0;
+            int k=0;
+            while(k!=l)
+             {if(A.charAt(k)== '{' || A.charAt(k)== '(' || A.charAt(k)== '[' )
+                {K[g]=A.charAt(k);
+                 g++;}
+              else if(A.charAt(k)== '}' && K[g-1]=='{')
+                {K[g-1]=' ';
+                    g--;}
+             else if(A.charAt(k)== ']' && K[g-1]=='[')
+                { K[g-1]=' ';
+                    g--;}
+             else if(A.charAt(k)== ')' && K[g-1]=='(')
+                
+                 {K[g-1]=' ';
+                    g--;}    
+             else
+             {System.out.println("-1");
+                 t=1;
+                break;}
+                k++;
+            }
+        }
+        else
+        {System.out.println("-1");}
+        if(t==0)
+        System.out.println("1");
+    }
+}
